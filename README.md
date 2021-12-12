@@ -1,13 +1,15 @@
 #debian
-
+## Prepare `hot-desktop` payload
+### Copy your public SSH key to `hot-desktop/authorized_keys`
+```
+cat ~/.ssh/id_rsa.pub > hot-desktop/authorized_keys
+```
 ## Auto install via http
-### Start http server with preseed file and other scripts
+### Start http server with `preseed` file and payload
+The preseed file will be appended to load the payload from this server
 ```
 docker-compose build --build-arg HOST=192.168.0.254:8080
 docker-compose up
-```
-```
-curl 192.168.0.254:8080/preseed
 ```
 ## Install debian
 ### Prepare USB drive with installation

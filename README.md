@@ -22,7 +22,7 @@ Plug in to the new computer, and boot to the USB drive
 
 (if you are having trouble booting to the USB drive, change the boot order in the BIOS)
 
-From installer menu:
+From Debian installer menu:
 - `Advanced options` > `Automated install`
 - (wait for initialization and network configuration)
 - Enter location of `preseed` file when prompted (`http://192.168.0.254:8080/preseed`)
@@ -30,8 +30,8 @@ From installer menu:
 - Manually partition the device
 - Wait for the setup to complete automatically
 
-The `local` account can only be logged in with physical access to the device. The password is `password`.
+The `local` account has no privileges and can only be logged in physically with the password `password`.
 
-The `admin` account has sudo privileges with no password can only be accessed via SSH with a public key.
+The `admin` account has sudo privileges and can only be accessed via SSH with a public key.
 
-The `root` account is disabled.
+The `root` account cannot be logged in directly as it has no password.

@@ -21,7 +21,7 @@ EOF
 # import public key for admin user
 su - admin << EOF
 mkdir -p ~/.ssh
-cp /hot-desktop/authorized_keys > ~/.ssh/authorized_keys
+cat /hot-desktop/authorized_keys > ~/.ssh/authorized_keys
 EOF
 
 # acpid makes shutdown work

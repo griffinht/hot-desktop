@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# needed for systemd-run
-#apt-get install -y dbus-user-session
-# reboot??
-
 ### ssh server
 apt-get install -y openssh-server
 cat << EOF > /etc/ssh/sshd_config.d/hot.conf
@@ -24,7 +20,14 @@ mkdir -p ~/.ssh
 cat /hot-desktop/authorized_keys > ~/.ssh/authorized_keys
 EOF
 
+### system setup
 # acpid makes shutdown work
 apt-get install -y acpid
+# needed for systemd-run
+#apt-get install -y dbus-user-session
+# reboot??
 
+
+
+### cleanup
 rm -r /hot-desktop

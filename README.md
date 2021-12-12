@@ -20,7 +20,9 @@ sudo cp debian.iso /dev/sdx
 ```
 Plug in to the new computer, and boot to the USB drive
 
+(if you are having trouble booting to the USB drive, change the boot order in the BIOS)
+
 From installer menu:
-- Advanced options > Automated install
-- (wait for network configuration)
+- `Advanced options` > `Automated install`
+- (wait for initialization and network configuration)
 - enter location of `preseed` file when prompted (`http://192.168.0.254:8080/preseed`)

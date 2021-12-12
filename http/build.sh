@@ -21,6 +21,6 @@ cat << EOF > http.sh
 curl $HOST/hot-desktop.tar -O hot-desktop.tar
 tar -xf hot-desktop.tar -C /
 rm hot-desktop.tar
-./hot-desktop/script.sh
+./hot-desktop/setup.sh
 rm http.sh
 EOF

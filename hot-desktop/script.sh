@@ -22,7 +22,7 @@ EOF
 # import public key for admin user
 systemd-run --uid=admin --pipe /bin/bash << EOF
 mkdir -p ~/.ssh
-curl http://192.168.0.254:8080/key > ~/.ssh/authorized_keys
+cp /hot-desktop/authorized_keys > ~/.ssh/authorized_keys
 EOF
 
 

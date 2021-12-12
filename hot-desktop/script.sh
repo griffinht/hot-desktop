@@ -1,9 +1,8 @@
 #!/bin/bash
 
-exit 1
-
-apt-get install -y dbus-user-session
-# reboot
+# needed for systemd-run
+#apt-get install -y dbus-user-session
+# reboot??
 
 ### ssh server
 apt-get install -y openssh-server
@@ -20,11 +19,12 @@ cat << EOF > /etc/sudoers
 admin ALL=(ALL) NOPASSWD: ALL
 EOF
 # import public key for admin user
-systemd-run --uid=admin --pipe /bin/bash << EOF
+su - admin << EOF
 mkdir -p ~/.ssh
 cp /hot-desktop/authorized_keys > ~/.ssh/authorized_keys
 EOF
 
+# acpid makes shutdown work
+apt-get install -y acpid
 
-apt-get install -y \
-  acpid
+rm -r /hot-desktop

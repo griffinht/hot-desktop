@@ -1,4 +1,6 @@
-#debian
+#hot-desktop
+Provisions my desktop with Debian
+
 ## Prepare `hot-desktop` payload
 ### Copy your public SSH key to `hot-desktop/authorized_keys`
 ```

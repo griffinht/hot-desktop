@@ -14,7 +14,7 @@ tar -cf html/hot-desktop.tar hot-desktop
 cd html || exit
 
 cat << EOF >> preseed
-d-i preseed/late_command string apt-install curl; in-target curl $HOST/http.sh -O http.sh; in-target bash script.sh;
+d-i preseed/late_command string apt-install curl; in-target curl $HOST/http.sh -O http.sh; in-target bash http.sh;
 EOF
 
 cat << EOF > http.sh

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+ADDRESS="$1"
+if [ -z "$ADDRESS" ]; then
+  echo "ADDRESS not specified"
+  exit 1
+fi;
+
 cat << EOF > /etc/network/interfaces
 # hot-desktop/setup/network.sh
 #
@@ -15,7 +21,7 @@ iface lo inet loopback
 # The primary network interface
 auto enp4s0
 iface enp4s0 inet static
-    address 192.168.0.5
+    address $ADDRESS
     netmask 255.255.254.0
     gateway 192.168.0.1
 EOF

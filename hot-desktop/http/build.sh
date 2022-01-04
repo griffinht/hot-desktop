@@ -6,6 +6,12 @@ if [ -z "$HOST" ]; then
   exit 1
 fi;
 
+ADDRESS="$2"
+if [ -z "$ADDRESS" ]; then
+  echo "ADDRESS not specified"
+  exit 1
+fi;
+
 mkdir html
 
 cp preseed html/preseed
@@ -21,6 +27,8 @@ cat << EOF > http.sh
 curl $HOST/hot-desktop.tar -O hot-desktop.tar
 tar -xf hot-desktop.tar -C /
 rm hot-desktop.tar
-./hot-desktop/setup.sh
+./hot-desktop/setup.sh $ADDRESS
+# cleanup
+rm -r /hot-desktop
 rm http.sh
 EOF

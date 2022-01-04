@@ -10,7 +10,7 @@ cat ~/.ssh/id_ed25519.pub > hot-desktop/authorized_keys
 ### Start http server with `preseed` file and payload
 The preseed file will be appended to load the payload from this server
 ```
-docker compose build --build-arg HOST=192.168.0.254:8080
+docker compose build --build-arg HOST=192.168.0.254:8080 --build-arg ADDRESS=192.168.0.5
 docker compose up
 ```
 ## Install debian

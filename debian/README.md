@@ -14,6 +14,13 @@ The preseed file will be appended to load the payload from this server
 ./build.sh 192.168.0.254:8080 192.168.0.5
 docker compose up
 ```
+OR
+```
+(
+cd debian
+./../hot-desktop/hot-desktop.sh 
+)
+```
 ## Install debian
 ### Prepare USB drive with installation
 ```

@@ -3,16 +3,6 @@ https://wiki.debian.org/InstallingDebianOn/HP/Envy%2014%20Beats%20Edition%202020
 
 the installer can't detect the LAN card, so do the following:
 
-run `./build.sh` and then add this to the preseed file 
-
-todo load preseed via usb
-
-```
-d-i preseed/early_command string \
-    /bin/sh -c "modprobe atl1c && echo "1969 1083" > /sys/bus/pci/drivers/atl1c/new_id"; \
-    in-target /bin/sh -c "modprobe atl1c && echo "1969 1083" > /sys/bus/pci/drivers/atl1c/new_id";
-```
-
 when you are prompted for the location of the preseed file in the installer
 
 1. Drop to a shell (alt + F2)

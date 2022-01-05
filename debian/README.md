@@ -2,15 +2,16 @@
 Provisions my desktop with Debian
 
 ## Prepare `debian` payload
-### Copy your public SSH key to `debian/authorized_keys`
+### Copy your public SSH key to `debian/payload/authorized_keys`
 ```
-cat ~/.ssh/id_ed25519.pub > debian/authorized_keys
+cat ~/.ssh/id_ed25519.pub > debian/payload/authorized_keys
 ```
 ## Auto install via http
 ### Start http server with `preseed` file and payload
 The preseed file will be appended to load the payload from this server
 ```
-./build.sh <address of http server> <static ip address of provisioned server>
+./build.sh <address of this http server with payload> <static ip address of provisioned server>
+./build.sh 192.168.0.254:8080 192.168.0.5
 docker compose up
 ```
 ## Install debian

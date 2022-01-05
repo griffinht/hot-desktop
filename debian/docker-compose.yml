@@ -1,0 +1,7 @@
+services:
+  http:
+    image: nginx
+    volumes:
+      - ./debian/html:/usr/share/nginx/html/
+    ports:
+      - 8080:80

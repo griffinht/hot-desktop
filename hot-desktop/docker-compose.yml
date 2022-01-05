@@ -1,8 +1,0 @@
-services:
-  http:
-    image: http
-    build:
-      context: .
-      dockerfile: http/Dockerfile
-    ports:
-      - 8080:80

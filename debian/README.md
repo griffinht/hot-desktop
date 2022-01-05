@@ -1,16 +1,16 @@
 #hot-desktop
 Provisions my desktop with Debian
 
-## Prepare `hot-desktop` payload
-### Copy your public SSH key to `hot-desktop/authorized_keys`
+## Prepare `debian` payload
+### Copy your public SSH key to `debian/authorized_keys`
 ```
-cat ~/.ssh/id_ed25519.pub > hot-desktop/authorized_keys
+cat ~/.ssh/id_ed25519.pub > debian/authorized_keys
 ```
 ## Auto install via http
 ### Start http server with `preseed` file and payload
 The preseed file will be appended to load the payload from this server
 ```
-docker compose build --build-arg HOST=192.168.0.254:8080 --build-arg ADDRESS=192.168.0.5
+./build.sh <address of http server> <static ip address of provisioned server>
 docker compose up
 ```
 ## Install debian

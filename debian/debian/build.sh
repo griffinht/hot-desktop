@@ -12,10 +12,11 @@ if [ -z "$ADDRESS" ]; then
   exit 1
 fi;
 
+rm -rf html
 mkdir html
 
 cp preseed html/preseed
-tar -cf html/hot-desktop.tar hot-desktop
+tar -cf html/payload.tar payload
 
 cd html || exit
 
@@ -24,11 +25,14 @@ d-i preseed/late_command string apt-install curl; in-target curl $HOST/http.sh -
 EOF
 
 cat << EOF > http.sh
-curl $HOST/hot-desktop.tar -O hot-desktop.tar
-tar -xf hot-desktop.tar -C /
-rm hot-desktop.tar
-./hot-desktop/setup.sh $ADDRESS
+curl $HOST/payload.tar -O payload.tar
+tar -xf payload.tar -C /
+rm payload.tar
+(
+cd ./payload
+./payload/setup.sh $ADDRESS
+)
 # cleanup
-rm -r /hot-desktop
+rm -r /payload
 rm http.sh
 EOF

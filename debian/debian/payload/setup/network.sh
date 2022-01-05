@@ -7,7 +7,7 @@ if [ -z "$ADDRESS" ]; then
 fi;
 
 cat << EOF > /etc/network/interfaces
-# hot-desktop/setup/network.sh
+# setup/setup/network.sh
 #
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).

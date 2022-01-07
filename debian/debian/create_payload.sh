@@ -12,6 +12,12 @@ if [ -z "$ADDRESS" ]; then
   exit 1
 fi;
 
+INTERFACE="$3"
+if [ -z "$INTERFACE" ]; then
+  echo "INTERFACE not specified"
+  exit 1
+fi;
+
 rm -rf html
 mkdir html
 
@@ -35,7 +41,7 @@ function http {
   curl "$HOST"/payload.tar | tar -x
   (
   cd payload
-  ./setup.sh "$ADDRESS"
+  ./setup.sh "$ADDRESS" "$INTERFACE"
   )
 }
 

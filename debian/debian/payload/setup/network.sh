@@ -6,6 +6,12 @@ if [ -z "$ADDRESS" ]; then
   exit 1
 fi;
 
+INTERFACE="$2"
+if [ -z "$INTERFACE" ]; then
+  echo "INTERFACE not specified"
+  exit 1
+fi;
+
 cat << EOF > /etc/network/interfaces
 # setup/setup/network.sh
 #
@@ -19,8 +25,8 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto enp4s0
-iface enp4s0 inet static
+auto $INTERFACE
+iface $INTERFACE inet static
     address $ADDRESS
     netmask 255.255.254.0
     gateway 192.168.0.1

@@ -6,7 +6,13 @@ if [ -z "$ADDRESS" ]; then
   exit 1
 fi;
 
+INTERFACE="$2"
+if [ -z "$INTERFACE" ]; then
+  echo "INTERFACE not specified"
+  exit 1
+fi;
+
 ./setup/system.sh
 ./setup/users.sh
 ./setup/openssh-server.sh
-./setup/network.sh "$ADDRESS"
+./setup/network.sh "$ADDRESS" "$INTERFACE"

@@ -16,7 +16,10 @@ rm -rf html
 mkdir html
 
 cp preseed html/preseed
-tar -cf html/payload.tar payload
+
+
+
+
 
 cd html || exit
 

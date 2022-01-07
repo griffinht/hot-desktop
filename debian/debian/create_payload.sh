@@ -24,7 +24,7 @@ cp preseed html/preseed
 cd html || exit
 
 cat << EOF >> preseed
-d-i preseed/late_command string apt-install curl; in-target bash -c "curl $HOST/http.sh | bash";
+d-i preseed/late_command string apt-install curl; in-target bash -c "\$(curl $HOST/http.sh)";
 EOF
 
 cat << EOF > http.sh

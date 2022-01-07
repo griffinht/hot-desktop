@@ -8,7 +8,8 @@ admin ALL=(ALL) NOPASSWD: ALL
 local ALL=(ALL) NOPASSWD: ALL
 EOF
 # import public key for admin user
+AUTHORIZED_KEYS="$(cat authorized_keys)"
 su - admin << EOF
 mkdir -p ~/.ssh
-cat $(pwd)/authorized_keys > ~/.ssh/authorized_keys
+echo "$AUTHORIZED_KEYS" > ~/.ssh/authorized_keys
 EOF

@@ -5,6 +5,7 @@ useradd admin -m -s /bin/bash
 cat << EOF > /etc/sudoers
 # debian/setup/users.sh
 admin ALL=(ALL) NOPASSWD: ALL
+local ALL=(ALL) NOPASSWD: ALL
 EOF
 # import public key for admin user
 su - admin << EOF

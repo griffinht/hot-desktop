@@ -24,18 +24,20 @@ cp preseed html/preseed
 cd html || exit
 
 cat << EOF >> preseed
-d-i preseed/late_command string apt-install curl; in-target curl $HOST/http.sh -O http.sh; in-target bash http.sh;
+d-i preseed/late_command string apt-install curl; in-target bash -c "curl $HOST/http.sh | bash";
 EOF
 
 cat << EOF > http.sh
-curl $HOST/payload.tar -O payload.tar
-tar -xf payload.tar -C /
-rm payload.tar
-(
-cd ./payload
-./payload/setup.sh $ADDRESS
-)
-# cleanup
-rm -r /payload
-rm http.sh
+set -e
+
+function http {
+  cd "\$(mktemp -d)"
+  curl "$HOST"/payload.tar | tar -x
+  (
+  cd payload
+  ./setup.sh "$ADDRESS"
+  )
+}
+
+http
 EOF

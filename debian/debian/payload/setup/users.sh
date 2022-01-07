@@ -10,5 +10,5 @@ EOF
 # import public key for admin user
 su - admin << EOF
 mkdir -p ~/.ssh
-cat ./authorized_keys > ~/.ssh/authorized_keys
+cat $(pwd)/authorized_keys > ~/.ssh/authorized_keys
 EOF

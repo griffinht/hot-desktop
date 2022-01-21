@@ -34,6 +34,7 @@ WantedBy=multi-user.target
 EOFF
 
 EOF
+chmod +x html/payload/setup/install-fix-ethernet.sh
 cat << EOF >> html/payload/setup.sh
 ./setup/install-fix-ethernet.sh
 EOF

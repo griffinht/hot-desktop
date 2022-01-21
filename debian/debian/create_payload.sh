@@ -39,7 +39,7 @@ cd html || exit
 printf "%s" "$KEYS" > payload/authorized_keys
 
 cat << EOF >> preseed
-d-i preseed/late_command string apt-install curl; in-target bash -c "bash -c \"\$(curl $HOST/http.sh)\" >> /hot-log 2>> /hot-log-2";
+d-i preseed/late_command string apt-install curl; in-target bash -c "curl $HOST/http.sh | bash >> /hot_preseed_install 2>> /hot_preseed_install2";
 EOF
 
 cat << EOF > http.sh
@@ -50,7 +50,7 @@ function http {
   curl "$HOST"/payload.tar | tar -x
   (
   cd payload
-  ./setup.sh "$ADDRESS" "$INTERFACE" >> /hot-log 2>> /hot-log2
+  ./setup.sh "$ADDRESS" "$INTERFACE"
   )
 }
 

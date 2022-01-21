@@ -13,8 +13,8 @@ The preseed file will be appended to load the payload from this server
 cd debian
 ```
 ```
-../envy-laptop/envy-laptop.sh <host>:8000 "$(cat <public ssh key file>)"
-../hot-desktop/hot-desktop.sh 192.168.0.254:8000 "$(cat ~/.ssh/id_ed25519.pub)"
+../envy-laptop/envy-laptop.sh <host>:8080 "$(cat <public ssh key file>)"
+../hot-desktop/hot-desktop.sh 192.168.0.254:8080 "$(cat ~/.ssh/id_ed25519.pub)"
 ```
 ```
 ./pack_payload.sh

@@ -1,3 +1,7 @@
 #!/bin/bash
+set -e
 
-tar -cf html/payload.tar payload
+cd html
+
+tar -c payload > payload.tar
+rm -r payload

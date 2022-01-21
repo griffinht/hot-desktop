@@ -18,9 +18,16 @@ if [ -z "$INTERFACE" ]; then
   exit 1
 fi;
 
+KEYS="$4"
+if [ -z "$KEYS" ]; then
+  echo "KEYS not specified"
+  exit 1
+fi;
+
 rm -rf html
 mkdir html
 
+cp -r payload html/payload
 cp preseed html/preseed
 
 
@@ -28,6 +35,8 @@ cp preseed html/preseed
 
 
 cd html || exit
+
+printf "%s" "$KEYS" > authorized_keys
 
 cat << EOF >> preseed
 d-i preseed/late_command string apt-install curl; in-target bash -c "\$(curl $HOST/http.sh)";

@@ -1,3 +1,7 @@
 #!/bin/bash
+set -e
 
-./build.sh 192.168.0.254:8080 192.168.0.5 enp4s0
+HOST="$1"
+KEYS="$2"
+
+./create_payload.sh "$HOST" 192.168.0.5 enp4s0 "$KEYS"

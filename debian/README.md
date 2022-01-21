@@ -10,6 +10,15 @@ cat ~/.ssh/id_ed25519.pub > debian/payload/authorized_keys
 ### Start http server with `preseed` file and payload
 The preseed file will be appended to load the payload from this server
 ```
+cd debian
+```
+```
+../envy-laptop/envy-laptop.sh <host>:8000 "$(cat <public ssh key file>)"
+```
+```
+../hot-desktop/hot-desktop.sh 192.168.0.254:8000 "$(cat ~/.ssh/id_ed25519.pub)"
+```
+```
 ./build.sh <address of this http server with payload> <static ip address of provisioned server>
 ./build.sh 192.168.0.254:8080 192.168.0.5
 docker compose up

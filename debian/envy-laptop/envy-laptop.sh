@@ -1,6 +1,10 @@
 #!/bin/bash
+set -e
 
-./create_payload.sh 192.168.0.254:8080 192.168.0.6 eno1
+HOST="$1"
+KEYS="$2"
+
+./create_payload.sh "$HOST" 192.168.0.6 eno1 "$KEYS"
 
 cat << 'EOF' >> html/preseed
 d-i preseed/early_command string /bin/sh -c "modprobe atl1c && echo "1969 1083" > /sys/bus/pci/drivers/atl1c/new_id";
@@ -30,6 +34,6 @@ WantedBy=multi-user.target
 EOFF
 
 EOF
-cat << EOF >> html/setup.sh
+cat << EOF >> html/payload/setup.sh
 ./setup/install-fix-ethernet.sh
 EOF

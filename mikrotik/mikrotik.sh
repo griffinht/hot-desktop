@@ -18,3 +18,9 @@ ip firewall nat add chain=dstnat action=dst-nat dst-address=$EXTERNAL_ADDRESS ds
 # minecraft
 ip firewall nat add chain=dstnat action=dst-nat dst-address=$EXTERNAL_ADDRESS dst-port=25565 to-addresses=$HOST protocol=tcp
 EOF
+
+#!/bin/bash
+
+# https://forum.mikrotik.com/viewtopic.php?t=94355
+ssh-keygen -if mikrotik_rsa.pub -m PKCS8 | ssh-keygen -lf -
+

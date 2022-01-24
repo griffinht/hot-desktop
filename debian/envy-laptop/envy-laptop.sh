@@ -35,6 +35,19 @@ EOFF
 
 EOF
 chmod +x html/payload/setup/install-fix-ethernet.sh
+
+cat << 'EOF' >> html/payload/setup/disable-sleep-on-lid-close.sh
+
+cat << 'EOFF' > /etc/systemd/logind.conf
+# debian/envy-laptop/envy-laptop.sh
+[Login]
+HandleLidSwitch=ignore
+EOFF
+
+EOF
+chmod +x html/payload/setup/disable-sleep-on-lid-close.sh
+
 cat << EOF >> html/payload/setup.sh
 ./setup/install-fix-ethernet.sh
+./setup/disable-sleep-on-lid-close.sh
 EOF

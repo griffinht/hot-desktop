@@ -17,6 +17,10 @@ ip firewall nat add chain=dstnat action=dst-nat dst-address=$EXTERNAL_ADDRESS ds
 
 # minecraft
 ip firewall nat add chain=dstnat action=dst-nat dst-address=$EXTERNAL_ADDRESS dst-port=25565 to-addresses=$HOST protocol=tcp
+
+
+# ip-server
+ip firewall nat add chain=dstnat action=dst-nat dst-address=$EXTERNAL_ADDRESS dst-port=38234 to-addresses=$HOST protocol=tcp
 EOF
 
 #!/bin/bash
